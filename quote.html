@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quote Machine</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <template v-if="quotes">
+                <div id="quote-box">
+                    <div v-bind:style="{ color: activeColor }" class="quote-text">{{ quote.text }}</div>
+                    <div class="quote-author" v-bind:style="{ color: activeColor }">- {{ quote.author }}</div>
+                    <div class="buttons">
+                        <button v-on:click="randomize" v-bind:style="{ backgroundColor: activeColor}" id="new-quote">New Quote</button>
+                        <tweet-button 
+                        v-bind:tweet-message="quote.text + ' - ' + quote.author"
+                        v-bind:style="{ backgroundColor: activeColor}"
+                        class="tweet-quote">
+                            <i slot="icon" class="fa fa-twitter"></i>
+                        </tweet-button>
+                        <tumblr-button 
+                        v-bind:caption="quote.author"
+                        v-bind:content="quote.text"
+                        v-bind:style="{ backgroundColor: activeColor}"
+                        class="tumblr-quote">
+                            <i slot="icon" class="fa fa-tumblr"></i>
+                        </tumblr-button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </body>
+
+    <script src="quote.js"></script>
+</html>
