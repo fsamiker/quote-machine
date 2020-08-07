@@ -3,7 +3,7 @@ var vue = new Vue({
     data: {
         quotes: null,
         randomQuoteIndex: null,
-        colorOptions: ['#ffb3ba', '#ffdfba', '#ffffba', '#baffc9', '#bae1ff'],
+        colorOptions: ['#ffb3ba', '#ffdfba', '#bae1ff', '#C23B23', '#F39A27', '#EADA52', '#03C03C', '#579ABE', '#976ED7', '#5FD4A2', '#808080'],
         activeColor: '#ffb3ba',
     },
     created: function() {
