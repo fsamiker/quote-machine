@@ -19,7 +19,14 @@
                     >
                         <div v-bind:style="{ color: activeColor }" v-bind:key="randomQuoteIndex" class="quote-text">{{ quote.text }}</div>
                     </transition>
-                    <div class="quote-author" v-bind:key="quote.author" v-bind:style="{ color: activeColor }">- {{ quote.author }}</div>
+                    <transition
+                        name="quote-author-animation"
+                        mode="out-in"
+                        enter-active-class="animate__animated animate__fadeIn"
+                        leave-active-class="animate__animated animate__fadeOut"
+                    >
+                        <div class="quote-author" v-bind:key="randomQuoteIndex" v-bind:style="{ color: activeColor }">- {{ quote.author }}</div>
+                    </transition>
                     <div class="buttons">
                         <button v-on:click="randomize" v-bind:style="{ backgroundColor: activeColor}" id="new-quote">New Quote</button>
                         <tweet-button 
